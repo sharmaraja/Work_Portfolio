@@ -51,9 +51,9 @@
         </div>
       </div>
 
-      <!-- Quick Links + Download -->
+      <!-- Quick Links -->
       <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-        <a href="https://www.datascienceportfol.io/rajat_sharma" target="_blank" 
+        <a href="https://github.com/sharmaraja/Work_Portfolio" target="_blank" 
            class="px-6 py-3 bg-white text-slate-900 rounded-3xl font-medium flex items-center gap-2 hover:scale-105 transition">
           <i class="fa-solid fa-briefcase"></i> Work Portfolio
         </a>
@@ -102,7 +102,7 @@
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
+    <!-- EXPERIENCE - FULL DETAILED VERSION -->
     <section class="mb-16">
       <h2 class="text-4xl font-semibold heading mb-8 text-white">Experience</h2>
 
@@ -114,21 +114,45 @@
             <p class="text-emerald-400">Dentsu Global Services • Sept 2024 – Present</p>
           </div>
         </div>
-        <div class="pl-6 border-l-2 border-emerald-500 space-y-8">
+
+        <div class="pl-6 border-l-2 border-emerald-500 space-y-10">
+
+          <!-- Severity Calculation -->
           <div>
             <h4 class="font-semibold text-lg">Severity Calculation for Customer Pain Points</h4>
-            <p class="text-sm text-slate-400">Huggingface, GenAI, Ranking, Finetuning</p>
-            <p class="text-slate-300">Tackled the most severe pain points using fine-tuned MPNet model for Level_1 to Level_5 mapping. Created severity scores using cancellations, refunds, contacts, feedback, escalation, and sentiment analysis.</p>
+            <p class="text-sm text-slate-400 mb-3">Huggingface, GenAI, Ranking, Finetuning</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Tackle the most severe pain points to customer on priority hence give weightage accordingly.</li>
+              <li><strong>Value:</strong> Adds to better CX hence customer retention and better handling of issues.</li>
+              <li><strong>Process:</strong> Attaching pain points to the contacts made from Level_1 (very broad) to Level_5 (most granular) this was done using fine-tuned MPnet model for the pre decided pain point levels (given by business owner).</li>
+              <li><strong>Process:</strong> Creating metrics like cancellations and refunds, no of contacts and touches, span of contacts, customer feedback score, and escalation, sentiment to compare and calculate severity of a pain point. Then making their severity scores at L5 levels using equal weightage to all the features and then giving weightages based on feature importance, finally discussing with business.</li>
+            </ul>
           </div>
+
+          <!-- Text Extraction -->
           <div>
             <h4 class="font-semibold text-lg">Text Extraction from Images</h4>
-            <p class="text-sm text-slate-400">GenAI, OCR, Streamlit</p>
-            <p class="text-slate-300">Extracted SKU descriptions and quantities from unclear notes using Gemini 2.5 + similarity matching. Achieved <strong>95%+ accuracy</strong>. Built Streamlit app for end-to-end processing.</p>
+            <p class="text-sm text-slate-400 mb-3">GenAI, OCR, Streamlit</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Extract SKU descriptions and quantities from unclear customer notes, map to system SKUs, and export to Excel.</li>
+              <li><strong>Value:</strong> Streamlines order processing by automating text extraction and SKU matching.</li>
+              <li><strong>Process:</strong> Pre-processed images, enhanced prompts with Gemini 2.5, converted results to Data Frame, and performed similarity matching with internal SKUs, returning top 2 matches.</li>
+              <li><strong>Result:</strong> Model achieved automated extraction with more than 95% accuracy.</li>
+              <li><strong>Challenge:</strong> Illegible notes with symbols, short hands, numeric, and dimensions complicated text recognition and matching.</li>
+            </ul>
           </div>
+
+          <!-- Customer Clustering -->
           <div>
             <h4 class="font-semibold text-lg">Customer Clustering</h4>
-            <p class="text-sm text-slate-400">Clustering, Statistical Analysis</p>
-            <p class="text-slate-300">Segmented customers to identify fraud and focus on high-value cohorts.</p>
+            <p class="text-sm text-slate-400 mb-3">Clustering, Statistical Analysis</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Segment customers into cohorts based on behaviour to identify fraud and focus on profitable ones.</li>
+              <li><strong>Value:</strong> Eliminates fraud, enhances targeting of high-value customers.</li>
+              <li><strong>Process:</strong> Monitored purchasing habits, progressed to full-fledged modelling.</li>
+              <li><strong>Result:</strong> Model in progress, accuracy not finalized.</li>
+              <li><strong>Challenge:</strong> Detecting fraud customers creating new accounts post-ban remains unresolved.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -141,11 +165,60 @@
             <p class="text-emerald-400">Factspan Analyst • June 2022 – Aug 2024</p>
           </div>
         </div>
-        <div class="pl-6 border-l-2 border-emerald-500 space-y-8">
-          <div><h4 class="font-semibold">Turn Around Time Prediction</h4><p class="text-slate-300">Regression • XGBoost • 70% accuracy</p></div>
-          <div><h4 class="font-semibold">Refill Request Volume Forecast</h4><p class="text-slate-300">Time Series • SARIMA • 92% accuracy</p></div>
-          <div><h4 class="font-semibold">Pyxis Min Max Levels Prediction</h4><p class="text-slate-300">Time Series • FB Prophet • 85% mean accuracy</p></div>
-          <div><h4 class="font-semibold">Radiology Care and Coordination (GenAI)</h4><p class="text-slate-300">OpenAI • Dashboard for severity detection</p></div>
+
+        <div class="pl-6 border-l-2 border-emerald-500 space-y-10">
+
+          <!-- Turn Around Time -->
+          <div>
+            <h4 class="font-semibold text-lg">Turn Around Time Prediction</h4>
+            <p class="text-sm text-slate-400 mb-3">Regression, Multi-Dimensional Data</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Predict time between surgeries in operation rooms.</li>
+              <li><strong>Value:</strong> Boosts team efficiency in surgical scheduling.</li>
+              <li><strong>Process:</strong> Used extreme gradient boosting for regression on a complex dataset.</li>
+              <li><strong>Result:</strong> 70% accuracy, with 10–20-minute error margin.</li>
+              <li><strong>Challenge:</strong> Managing 300+ features, millions of records, and hierarchical variables.</li>
+            </ul>
+          </div>
+
+          <!-- Refill Request -->
+          <div>
+            <h4 class="font-semibold text-lg">Refill Request Volume Forecast</h4>
+            <p class="text-sm text-slate-400 mb-3">Time Series Forecasting, Feature Engineering</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Forecast daily pharmacy refill request volume.</li>
+              <li><strong>Value:</strong> Improves efficiency, inventory, and customer experience.</li>
+              <li><strong>Process:</strong> Applied SARIMA for time series forecasting with feature engineering.</li>
+              <li><strong>Result:</strong> 92% accuracy, MAE of 60 for ~600 daily requests.</li>
+              <li><strong>Challenge:</strong> Client wanted to limit error in 10% range.</li>
+            </ul>
+          </div>
+
+          <!-- Pyxis Min Max -->
+          <div>
+            <h4 class="font-semibold text-lg">Pyxis Min Max Levels Prediction</h4>
+            <p class="text-sm text-slate-400 mb-3">Time Series, Fbprophet</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Predict min/max drug levels for Pyxis (medicine dispensing machines).</li>
+              <li><strong>Value:</strong> Optimizes inventory for high-cost medicines.</li>
+              <li><strong>Process:</strong> Used FB Prophet for top 50 medicines, after testing moving averages.</li>
+              <li><strong>Result:</strong> 85% mean accuracy with 90% confidence intervals.</li>
+              <li><strong>Challenge:</strong> Handling predictions for over 2,000 medicine series.</li>
+            </ul>
+          </div>
+
+          <!-- Radiology -->
+          <div>
+            <h4 class="font-semibold text-lg">Radiology Care and Coordination (GenAI)</h4>
+            <p class="text-sm text-slate-400 mb-3">GenAI</p>
+            <ul class="text-slate-300 space-y-2 text-[15px]">
+              <li><strong>Aim:</strong> Detect patient severity and incidental findings from radiology reports, provide alerts, and trend analysis.</li>
+              <li><strong>Value:</strong> Enhances patient care, automation saves costs.</li>
+              <li><strong>Process:</strong> Used Open AI endpoint with data masking for privacy, built a dashboard.</li>
+              <li><strong>Result:</strong> Delivered dashboard with severity trends and cost savings.</li>
+              <li><strong>Challenge:</strong> Ensuring data privacy and accurate keyword-based severity detection.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -157,7 +230,7 @@
             <p class="text-emerald-400">Chegg India • Dec 2018 – Jun 2020</p>
           </div>
         </div>
-        <p class="text-slate-300">Helped students with doubts and assignments in Electrical & Electronics Engineering.</p>
+        <p class="text-slate-300">The key responsibilities revolved around helping students with their doubts and assignments (A freelance online work profile).</p>
       </div>
     </section>
 
@@ -182,11 +255,11 @@
       <div class="flex flex-wrap gap-4">
         <div class="bg-slate-900 px-6 py-4 rounded-3xl flex items-center gap-3">
           <i class="fa-solid fa-home text-2xl text-emerald-400"></i>
-          <p>Active Super-Host on Airbnb with multiple listed properties</p>
+          <p>An active super-host on Airbnb with multiple listed properties.</p>
         </div>
         <div class="bg-slate-900 px-6 py-4 rounded-3xl flex items-center gap-3">
           <i class="fa-solid fa-chart-line text-2xl text-emerald-400"></i>
-          <p>Stock market analysis and active investing/trading</p>
+          <p>Stock market analysis and active investing/trading.</p>
         </div>
       </div>
     </section>
