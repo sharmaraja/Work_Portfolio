@@ -10,68 +10,47 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
     body { font-family: 'Inter', system_ui, sans-serif; }
     .heading { font-family: 'Space Grotesk', sans-serif; }
+    /* Animation for expanding/collapsing project cards */
+    .project-card { transition: all 0.3s ease; }
+    .rotate-180 { transform: rotate(180deg); }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-200 dark:bg-slate-950 dark:text-slate-200 transition-colors">
+<body class="bg-slate-950 text-slate-200 transition-colors">
 
-  <!-- HEADER -->
-  <header class="bg-gradient-to-r from-slate-900 to-slate-800 dark:from-slate-900 dark:to-slate-800 py-8 border-b border-slate-700">
+  <header class="bg-gradient-to-r from-slate-900 to-slate-800 py-10 border-b border-slate-700">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-
-        <!-- Profile Photo + Name -->
         <div class="flex items-center gap-6">
           <img src="https://raw.githubusercontent.com/sharmaraja/Work_Portfolio/main/Linkenin_pic.jpg"
                alt="Rajat Sharma"
                class="w-24 h-24 md:w-32 md:h-32 rounded-3xl object-cover border-4 border-emerald-500 shadow-xl">
-          
           <div>
             <h1 class="heading text-5xl md:text-6xl font-semibold text-white">Rajat Sharma</h1>
             <p class="text-2xl text-emerald-400">Senior Data Scientist • GenAI Engineer</p>
           </div>
         </div>
 
-        <!-- Contact + Toggle -->
-        <div class="flex flex-col md:items-end gap-4">
-          <div class="flex items-center gap-6 text-sm">
-            <a href="tel:+917451989340" class="flex items-center gap-2 hover:text-emerald-400">
-              <i class="fa-solid fa-phone"></i> +91-7451989340
-            </a>
-            <a href="mailto:rajatraj9896@gmail.com" class="flex items-center gap-2 hover:text-emerald-400">
-              <i class="fa-solid fa-envelope"></i> rajatraj9896@gmail.com
-            </a>
-          </div>
-
-          <!-- Dark/Light Toggle -->
-          <button onclick="toggleTheme()" 
-                  class="flex items-center gap-3 bg-slate-800 hover:bg-slate-700 px-5 py-3 rounded-3xl text-sm font-medium transition">
-            <i id="theme-icon" class="fa-solid fa-moon"></i>
-            <span id="theme-text">Light Mode</span>
-          </button>
+        <div class="flex flex-col md:items-end gap-4 text-sm">
+          <a href="tel:+917451989340" class="flex items-center gap-2 hover:text-emerald-400 transition">
+            <i class="fa-solid fa-phone"></i> +91-7451989340
+          </a>
+          <a href="mailto:rajatraj9896@gmail.com" class="flex items-center gap-2 hover:text-emerald-400 transition">
+            <i class="fa-solid fa-envelope"></i> rajatraj9896@gmail.com
+          </a>
         </div>
       </div>
 
-      <!-- Quick Links -->
       <div class="mt-10 flex flex-wrap gap-4 justify-center md:justify-start">
-        <a href="https://github.com/sharmaraja/Work_Portfolio" target="_blank" 
-           class="px-6 py-3 bg-white text-slate-900 rounded-3xl font-medium flex items-center gap-2 hover:scale-105 transition">
+        <a href="https://github.com/sharmaraja/Work_Portfolio" target="_blank" class="px-6 py-3 bg-white text-slate-900 rounded-3xl font-medium flex items-center gap-2 hover:scale-105 transition">
           <i class="fa-solid fa-briefcase"></i> Work Portfolio
         </a>
-        <a href="https://github.com/sharmaraja" target="_blank" 
-           class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-3xl font-medium flex items-center gap-2 transition">
+        <a href="https://github.com/sharmaraja" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-3xl font-medium flex items-center gap-2 transition">
           <i class="fa-brands fa-github"></i> GitHub
         </a>
-        <a href="https://www.linkedin.com/in/rajat-sharma-090896/" target="_blank" 
-           class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-3xl font-medium flex items-center gap-2 transition">
+        <a href="https://www.linkedin.com/in/rajat-sharma-090896/" target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-3xl font-medium flex items-center gap-2 transition">
           <i class="fa-brands fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://www.kaggle.com/rajatrajsharma/code" target="_blank" 
-           class="px-6 py-3 bg-slate-800 hover:bg-slate-700 rounded-3xl font-medium flex items-center gap-2 transition">
-          <i class="fa-solid fa-chart-line"></i> Kaggle
-        </a>
-        <a href="Rajat__Sharma_AI_ML.pdf" download 
-           class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-3xl font-medium flex items-center gap-2 transition">
-          <i class="fa-solid fa-download"></i> Download PDF Resume
+        <a href="Rajat__Sharma_AI_ML.pdf" download class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white rounded-3xl font-medium flex items-center gap-2 transition">
+          <i class="fa-solid fa-download"></i> Download Resume
         </a>
       </div>
     </div>
@@ -79,220 +58,247 @@
 
   <div class="max-w-6xl mx-auto px-6 py-12">
 
-    <!-- PROFESSIONAL SUMMARY -->
     <section class="mb-16">
-      <h2 class="text-4xl font-semibold heading mb-6 text-white">Professional Summary</h2>
+      <h2 class="text-4xl font-semibold heading mb-6 text-white border-l-4 border-emerald-500 pl-4">Professional Summary</h2>
       <p class="text-lg leading-relaxed text-slate-300">
-        Results-driven Data Scientist with 4+ years of experience delivering AI/ML and GenAI solutions that improve customer experience, operational efficiency, and revenue. 
-        Proven expertise in Python, SQL, Scikit-learn, PyTorch, RAGs, Agents, and building production-grade models (95%+ accuracy achieved). 
-        Passionate about translating complex business problems into scalable data products at Dentsu and Factspan.
+        Working as a Data Scientist with 4+ years of experience delivering AI/ML and GenAI solutions that improve customer experience, operational efficiency, and revenue. Proven expertise in Python, SQL, Scikit-learn, PyTorch, RAGs, Agents, and building production-grade models. Achieved tangible results like multi-billion cost savings, on-ground reduction in escalations, and better customer experience. Passionate about translating complex business problems into scalable data products.
       </p>
     </section>
 
-    <!-- SKILLS -->
     <section class="mb-16">
-      <h2 class="text-4xl font-semibold heading mb-6 text-white">Skills & Tools</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">Languages</h3><p class="text-slate-300">Python, SQL</p></div>
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">ML/DL Frameworks</h3><p class="text-slate-300">Scikit-learn, PyTorch, Keras, Regression, Classification, Time Series</p></div>
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">Generative AI</h3><p class="text-slate-300">Langchain, Huggingface, RAGs, Agents & Agentic Workflows, LLM fine-tuning</p></div>
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">Data Visualization</h3><p class="text-slate-300">Tableau, Excel, PowerPoint</p></div>
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">Databases & Cloud</h3><p class="text-slate-300">SQL (advanced), Google Cloud (GCP, Vertex AI), Git/GitHub/GitLab</p></div>
-        <div class="bg-slate-900 rounded-3xl p-6"><h3 class="text-emerald-400 font-semibold mb-4">Other Tools</h3><p class="text-slate-300">DataRobot, NLP, Deployment, Streamlit, Docker, Snowflake</p></div>
+      <h2 class="text-4xl font-semibold heading mb-8 text-white">Skills and Tools</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">Languages</h3>
+          <p class="text-slate-300">Python, SQL</p>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">ML/DL Frameworks</h3>
+          <p class="text-slate-300">Scikit-learn, PyTorch, Keras, Regression, Classification, Time Series</p>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">GenAI</h3>
+          <p class="text-slate-300">Langchain, Huggingface, RAGs, Agents & Agentic Workflows, LLM fine-tuning</p>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">Data Viz</h3>
+          <p class="text-slate-300">Tableau, Excel, PowerPoint</p>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">Databases & Cloud</h3>
+          <p class="text-slate-300">SQL (advanced), Google Cloud (GCP, Vertex AI), Git/GitHub/GitLab</p>
+        </div>
+        <div class="bg-slate-900 rounded-3xl p-6 border border-slate-800">
+          <h3 class="text-emerald-400 font-semibold mb-2">Other</h3>
+          <p class="text-slate-300">DataRobot, NLP, Deployment, Streamlit, Docker, Snowflake, ML-Ops</p>
+        </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE - FULL DETAILED VERSION -->
     <section class="mb-16">
       <h2 class="text-4xl font-semibold heading mb-8 text-white">Experience</h2>
 
-      <!-- Dentsu -->
-      <div class="mb-12">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-2xl font-semibold">Senior Analyst / Data Scientist</h3>
-            <p class="text-emerald-400">Dentsu Global Services • Sept 2024 – Present</p>
-          </div>
-        </div>
+      <div class="mb-16">
+        <h3 class="text-2xl font-bold text-white">Senior Analyst/Data Scientist</h3>
+        <p class="text-emerald-400 font-medium text-lg mb-6">Dentsu Global Services • Sept 2024 – Present</p>
 
-        <div class="pl-6 border-l-2 border-emerald-500 space-y-10">
-
-          <!-- Severity Calculation -->
-          <div>
-            <h4 class="font-semibold text-lg">Severity Calculation for Customer Pain Points</h4>
-            <p class="text-sm text-slate-400 mb-3">Huggingface, GenAI, Ranking, Finetuning</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Tackle the most severe pain points to customer on priority hence give weightage accordingly.</li>
-              <li><strong>Value:</strong> Adds to better CX hence customer retention and better handling of issues.</li>
-              <li><strong>Process:</strong> Attaching pain points to the contacts made from Level_1 (very broad) to Level_5 (most granular) this was done using fine-tuned MPnet model for the pre decided pain point levels (given by business owner).</li>
-              <li><strong>Process:</strong> Creating metrics like cancellations and refunds, no of contacts and touches, span of contacts, customer feedback score, and escalation, sentiment to compare and calculate severity of a pain point. Then making their severity scores at L5 levels using equal weightage to all the features and then giving weightages based on feature importance, finally discussing with business.</li>
-            </ul>
-          </div>
-
-          <!-- Text Extraction -->
-          <div>
-            <h4 class="font-semibold text-lg">Text Extraction from Images</h4>
-            <p class="text-sm text-slate-400 mb-3">GenAI, OCR, Streamlit</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Extract SKU descriptions and quantities from unclear customer notes, map to system SKUs, and export to Excel.</li>
-              <li><strong>Value:</strong> Streamlines order processing by automating text extraction and SKU matching.</li>
-              <li><strong>Process:</strong> Pre-processed images, enhanced prompts with Gemini 2.5, converted results to Data Frame, and performed similarity matching with internal SKUs, returning top 2 matches.</li>
-              <li><strong>Result:</strong> Model achieved automated extraction with more than 95% accuracy.</li>
-              <li><strong>Challenge:</strong> Illegible notes with symbols, short hands, numeric, and dimensions complicated text recognition and matching.</li>
-            </ul>
+        <div class="space-y-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('sar')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Search and Rescue of Vulnerable orders</h4>
+                <p class="text-emerald-400 text-sm">Classification • Gemini LLM • Vertex AI Pipelines</p>
+              </div>
+              <i id="sar-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="sar-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Identify high-risk orders early by combining operational metrics and conversational signals to prevent executive escalations.</p>
+              <p><strong>Process:</strong> Aggregated faulty orders at order-level granularity with an anchor-date. Implemented scaling and imputation, and trained various models using cross-validation. Integrated model probability scores with Gemini-based conversational scores via Vertex AI pipelines.</p>
+              <p><strong>Value:</strong> Significant reduction in executive escalations and cancellations via A/B testing on ground.</p>
+              <p><strong>Results:</strong> Through A/B testing, achieved notable drop in escalations & cancellations while improving resolution time.</p>
+              <p><strong>Challenge:</strong> Preventing data leakage, handling severe class imbalance, and balancing LLM cost with accuracy.</p>
+            </div>
           </div>
 
-          <!-- Customer Clustering -->
-          <div>
-            <h4 class="font-semibold text-lg">Customer Clustering</h4>
-            <p class="text-sm text-slate-400 mb-3">Clustering, Statistical Analysis</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Segment customers into cohorts based on behaviour to identify fraud and focus on profitable ones.</li>
-              <li><strong>Value:</strong> Eliminates fraud, enhances targeting of high-value customers.</li>
-              <li><strong>Process:</strong> Monitored purchasing habits, progressed to full-fledged modelling.</li>
-              <li><strong>Result:</strong> Model in progress, accuracy not finalized.</li>
-              <li><strong>Challenge:</strong> Detecting fraud customers creating new accounts post-ban remains unresolved.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Factspan -->
-      <div class="mb-12">
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-2xl font-semibold">Associate Data Scientist</h3>
-            <p class="text-emerald-400">Factspan Analyst • June 2022 – Aug 2024</p>
-          </div>
-        </div>
-
-        <div class="pl-6 border-l-2 border-emerald-500 space-y-10">
-
-          <!-- Turn Around Time -->
-          <div>
-            <h4 class="font-semibold text-lg">Turn Around Time Prediction</h4>
-            <p class="text-sm text-slate-400 mb-3">Regression, Multi-Dimensional Data</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Predict time between surgeries in operation rooms.</li>
-              <li><strong>Value:</strong> Boosts team efficiency in surgical scheduling.</li>
-              <li><strong>Process:</strong> Used extreme gradient boosting for regression on a complex dataset.</li>
-              <li><strong>Result:</strong> 70% accuracy, with 10–20-minute error margin.</li>
-              <li><strong>Challenge:</strong> Managing 300+ features, millions of records, and hierarchical variables.</li>
-            </ul>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('sev')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Severity Calculation for Customer Pain Points</h4>
+                <p class="text-emerald-400 text-sm">Huggingface • GenAI • Fine-tuning • MPnet</p>
+              </div>
+              <i id="sev-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="sev-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Tackle the most severe customer pain points on priority by calculating weightage based on impact.</p>
+              <p><strong>Process:</strong> Categorized pain points (L1 to L5) using a fine-tuned MPnet model. Defined metrics like cancellations, refunds, and feedback to calculate severity scores at L5 levels using feature-importance-based weightage.</p>
+              <p><strong>Value:</strong> Focuses resources on high-impact customer issues, improving retention.</p>
+              <p><strong>Results:</strong> The model is currently in experimentation and parallel being checked on ground for accuracy.</p>
+              <p><strong>Challenge:</strong> Breaking high-level pain points to granular levels and developing well-documented prompts to get desired results.</p>
+            </div>
           </div>
 
-          <!-- Refill Request -->
-          <div>
-            <h4 class="font-semibold text-lg">Refill Request Volume Forecast</h4>
-            <p class="text-sm text-slate-400 mb-3">Time Series Forecasting, Feature Engineering</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Forecast daily pharmacy refill request volume.</li>
-              <li><strong>Value:</strong> Improves efficiency, inventory, and customer experience.</li>
-              <li><strong>Process:</strong> Applied SARIMA for time series forecasting with feature engineering.</li>
-              <li><strong>Result:</strong> 92% accuracy, MAE of 60 for ~600 daily requests.</li>
-              <li><strong>Challenge:</strong> Client wanted to limit error in 10% range.</li>
-            </ul>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('ocr')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Text Extraction from User Requirements List Images</h4>
+                <p class="text-emerald-400 text-sm">GenAI • OCR • Gemini 2.5 • Vertex AI Pipelines</p>
+              </div>
+              <i id="ocr-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="ocr-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Extract SKU descriptions/quantities from unclear handwritten notes and map to system SKUs.</p>
+              <p><strong>Process:</strong> Pre-processed images and enhanced prompting with Gemini 2.5; performed similarity matching for top system SKU matches and delivered results via automated pipelines.</p>
+              <p><strong>Result:</strong> Achieved automated extraction with more than 95% accuracy.</p>
+              <p><strong>Challenge:</strong> Illegible notes with symbols, short hands, numeric values, and dimensions complicated text recognition and matching.</p>
+            </div>
           </div>
 
-          <!-- Pyxis Min Max -->
-          <div>
-            <h4 class="font-semibold text-lg">Pyxis Min Max Levels Prediction</h4>
-            <p class="text-sm text-slate-400 mb-3">Time Series, Fbprophet</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Predict min/max drug levels for Pyxis (medicine dispensing machines).</li>
-              <li><strong>Value:</strong> Optimizes inventory for high-cost medicines.</li>
-              <li><strong>Process:</strong> Used FB Prophet for top 50 medicines, after testing moving averages.</li>
-              <li><strong>Result:</strong> 85% mean accuracy with 90% confidence intervals.</li>
-              <li><strong>Challenge:</strong> Handling predictions for over 2,000 medicine series.</li>
-            </ul>
-          </div>
-
-          <!-- Radiology -->
-          <div>
-            <h4 class="font-semibold text-lg">Radiology Care and Coordination (GenAI)</h4>
-            <p class="text-sm text-slate-400 mb-3">GenAI</p>
-            <ul class="text-slate-300 space-y-2 text-[15px]">
-              <li><strong>Aim:</strong> Detect patient severity and incidental findings from radiology reports, provide alerts, and trend analysis.</li>
-              <li><strong>Value:</strong> Enhances patient care, automation saves costs.</li>
-              <li><strong>Process:</strong> Used Open AI endpoint with data masking for privacy, built a dashboard.</li>
-              <li><strong>Result:</strong> Delivered dashboard with severity trends and cost savings.</li>
-              <li><strong>Challenge:</strong> Ensuring data privacy and accurate keyword-based severity detection.</li>
-            </ul>
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('cluster')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Customer Clustering</h4>
+                <p class="text-emerald-400 text-sm">Clustering • K-means • DBSCAN • Anomaly Detection</p>
+              </div>
+              <i id="cluster-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="cluster-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Segment customers based on behavior to identify fraud and focus on profitable segments.</p>
+              <p><strong>Process:</strong> Prepared ID-level data using frequency and complaint history. Applied K-means and DBSCAN, verifying results via silhouette methods and anomaly detection for fraud identification.</p>
+              <p><strong>Result:</strong> Delivered cohort insights to the client for targeted business improvement.</p>
+              <p><strong>Challenge:</strong> Judging the accuracy of the clusters and establishing how trustworthy the process is.</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Chegg -->
-      <div>
-        <div class="flex justify-between items-start mb-4">
-          <div>
-            <h3 class="text-2xl font-semibold">Subject Matter Expert (Freelance)</h3>
-            <p class="text-emerald-400">Chegg India • Dec 2018 – Jun 2020</p>
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Associate Data Scientist</h3>
+        <p class="text-emerald-400 font-medium text-lg mb-6">Factspan Analyst • June 2022 – Aug 2024</p>
+        
+        <div class="space-y-4">
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('tat')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Turn Around Time Prediction</h4>
+                <p class="text-emerald-400 text-sm">Regression • XGBoost • Outlier Treatment</p>
+              </div>
+              <i id="tat-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="tat-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Predict time between surgeries to boost surgical scheduling efficiency.</p>
+              <p><strong>Process:</strong> Processed multi-dimensional data (300+ features) including patient and doctor details with outlier treatment and standard scaling, using XGBoost for regression.</p>
+              <p><strong>Result:</strong> 65% accuracy with a 20-minute error margin.</p>
+              <p><strong>Challenge:</strong> Dealing with a huge number of features and the dependency of the current surgery on the next one.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('refill')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Refill Request Volume Forecast</h4>
+                <p class="text-emerald-400 text-sm">Time Series • SARIMA • Feature Engineering</p>
+              </div>
+              <i id="refill-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="refill-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Forecast daily pharmacy refill request volumes for inventory planning.</p>
+              <p><strong>Process:</strong> Developed exogenous features for flu seasons and events, applying SARIMA for time series forecasting.</p>
+              <p><strong>Result:</strong> 92% accuracy, MAE of 60 for ~600 daily requests.</p>
+              <p><strong>Challenge:</strong> Client wanted to limit error within a 10% range, requiring careful model tuning.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('pyxis')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Pyxis Min Max Levels Prediction</h4>
+                <p class="text-emerald-400 text-sm">Time Series • FB Prophet • Inventory Optimization</p>
+              </div>
+              <i id="pyxis-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="pyxis-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Predict drug levels for dispensing machines to optimize inventory for high-cost medicines.</p>
+              <p><strong>Process:</strong> Used FB Prophet for top 50 high-cost medicines after testing moving averages and handling over 2,000 medicine series.</p>
+              <p><strong>Result:</strong> 85% mean accuracy with 90% confidence intervals, resulting in annual savings of nearly $3Mn.</p>
+              <p><strong>Challenge:</strong> Data inconsistency and gaps across over 2,000 medicine series.</p>
+            </div>
+          </div>
+
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden project-card">
+            <button onclick="toggleTab('radio')" class="w-full p-6 text-left flex justify-between items-center hover:bg-slate-800 transition">
+              <div>
+                <h4 class="font-bold text-lg text-white">Radiology Care and Coordination</h4>
+                <p class="text-emerald-400 text-sm">GenAI • OpenAI • Automation Pipeline</p>
+              </div>
+              <i id="radio-icon" class="fa-solid fa-chevron-down text-slate-500 transition-transform"></i>
+            </button>
+            <div id="radio-body" class="hidden p-6 pt-0 border-t border-slate-800 space-y-4 text-slate-300">
+              <p><strong>Aim:</strong> Detect patient severity and incidental findings from radiology reports to alert doctors.</p>
+              <p><strong>Process:</strong> Developed an auto-ingestion pipeline using OpenAI endpoints with data masking for privacy and built a severity trends dashboard.</p>
+              <p><strong>Result:</strong> Delivered a fully automated pipeline with significant cost savings.</p>
+              <p><strong>Challenge:</strong> Ensuring data privacy and developing robust prompting techniques for better analysis.</p>
+            </div>
           </div>
         </div>
-        <p class="text-slate-300">The key responsibilities revolved around helping students with their doubts and assignments (A freelance online work profile).</p>
+      </div>
+
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold text-white mb-2">Subject Matter Expert</h3>
+        <p class="text-emerald-400 font-medium text-lg mb-4">Chegg India • Dec 2018 – Jun 2020 <span class="text-slate-500 text-sm">(Freelance)</span></p>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-slate-300">
+          <p>Electrical &amp; Electronics Engineering subject matter expert, helping students resolve academic doubts and complete assignments through an online freelance platform.</p>
+        </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
     <section class="mb-16">
       <h2 class="text-4xl font-semibold heading mb-6 text-white">Education</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-slate-900 rounded-3xl p-8">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
           <p class="text-emerald-400 font-medium">Masters • MTech</p>
-          <p class="text-2xl font-semibold mt-1">NIT Allahabad (MNNIT Allahabad)</p>
+          <p class="text-2xl font-bold text-white mt-1">MNNIT Allahabad</p>
+          <p class="text-slate-400 mt-1">NIT Allahabad</p>
         </div>
-        <div class="bg-slate-900 rounded-3xl p-8">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
           <p class="text-emerald-400 font-medium">Bachelors • BTech</p>
-          <p class="text-2xl font-semibold mt-1">AKTU • ABES Engineering College</p>
+          <p class="text-2xl font-bold text-white mt-1">ABES Engineering College</p>
+          <p class="text-slate-400 mt-1">AKTU</p>
         </div>
       </div>
     </section>
 
-    <!-- EXTRA ACTIVITIES -->
-    <section>
-      <h2 class="text-4xl font-semibold heading mb-6 text-white">Extra Activities & Interests</h2>
+    <section class="pb-12">
+      <h2 class="text-4xl font-semibold heading mb-6 text-white">Interests</h2>
       <div class="flex flex-wrap gap-4">
-        <div class="bg-slate-900 px-6 py-4 rounded-3xl flex items-center gap-3">
+        <div class="bg-slate-900 px-8 py-5 rounded-3xl border border-slate-800 flex items-center gap-4">
           <i class="fa-solid fa-home text-2xl text-emerald-400"></i>
-          <p>An active super-host on Airbnb with multiple listed properties.</p>
+          <span class="text-lg">Airbnb Super-host (Multiple Properties)</span>
         </div>
-        <div class="bg-slate-900 px-6 py-4 rounded-3xl flex items-center gap-3">
+        <div class="bg-slate-900 px-8 py-5 rounded-3xl border border-slate-800 flex items-center gap-4">
           <i class="fa-solid fa-chart-line text-2xl text-emerald-400"></i>
-          <p>Stock market analysis and active investing/trading.</p>
+          <span class="text-lg">Stock Market Analysis & Active Trading</span>
         </div>
       </div>
     </section>
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-slate-900 py-8 text-center text-slate-400 text-sm">
+  <footer class="bg-slate-900 py-10 text-center text-slate-500 text-sm border-t border-slate-800">
     <p>Made with ❤️ by Rajat Sharma • © 2026 • Fully static & mobile friendly</p>
   </footer>
 
   <script>
-    function toggleTheme() {
-      const html = document.documentElement;
-      const icon = document.getElementById('theme-icon');
-      const text = document.getElementById('theme-text');
-      if (html.classList.contains('dark')) {
-        html.classList.remove('dark');
-        icon.classList.replace('fa-moon', 'fa-sun');
-        text.textContent = 'Dark Mode';
-        localStorage.theme = 'light';
+    function toggleTab(id) {
+      const body = document.getElementById(id + '-body');
+      const icon = document.getElementById(id + '-icon');
+      const isHidden = body.classList.contains('hidden');
+
+      if (isHidden) {
+        body.classList.remove('hidden');
+        icon.classList.add('rotate-180');
       } else {
-        html.classList.add('dark');
-        icon.classList.replace('fa-sun', 'fa-moon');
-        text.textContent = 'Light Mode';
-        localStorage.theme = 'dark';
+        body.classList.add('hidden');
+        icon.classList.remove('rotate-180');
       }
     }
-    if (localStorage.theme === 'light') {
-      document.documentElement.classList.remove('dark');
-      document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
-      document.getElementById('theme-text').textContent = 'Dark Mode';
-    }
   </script>
-</body>
-</html>
